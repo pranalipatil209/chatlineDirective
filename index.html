@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chatline</title>
+    <style>
+        .container{
+            margin: auto;
+            width:320px;
+            height:600px;
+            background-color: white;
+            box-shadow: 3px 3px 5px gray;
+
+        }
+        h3{
+            font-family: KacstOffice;
+            font-size: 15px;
+            font-weight: 400;
+            color: cadetblue;
+        }
+        #head{
+            height: 70px;
+            background-color: bisque;
+            box-shadow: 3px 0px 5px gray;
+            text-align: center;
+        }
+        #headL{
+            top: 4%;
+            margin-top:-8px ;
+        }
+        #contain{
+            height:495px;
+            overflow: auto;
+        }
+        #plate{
+            width: 300px;
+            margin: auto;
+            margin-top: 10px;
+        }
+        #footer{
+            width: 320px;
+            display: inline-block;
+            box-shadow: 3px 0px 5px gray;
+        }
+        button{
+            background-color: seagreen;
+            color:white;
+            height: 30px;
+        }
+        #chat{
+            display: table;
+            float: right;
+            background-color: cadetblue;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 1px 1px 2px gray;
+            padding: 3px;
+            text-align: center;
+        }
+        #chat>text {
+            font-size: 12px;
+        }
+        chat-bubble{
+            float: right;
+            clear: both;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body bgcolor="#d3d3d3" ng-app="chatLineApp">
+    <div class="container" ng-controller="chatCtrl">
+    <center>
+        <div id="head"><br>
+            <div id="headL"><h3>Auto Adjustable Rows for chatlines</h3></div>
+        </div>
+        <div id="contain">
+            <div id="plate">
+                <div ng-repeat="i in lineArr">
+                    <chat-bubble line="i"></chat-bubble>
+                </div>
+
+            </div>
+        </div>
+        <div id="footer">
+            <div class="footer">
+                <input type="text" placeholder="message..." ng-model="lineMe">
+                <button ng-click="send()">Send</button>
+            </div>
+        </div>
+    </center>
+    </div>
+</body>
+
+<!--Dependencies-->
+<script src="bower_components/angular/angular.min.js"></script>
+<script type="application/javascript" src="controller/chatCtrl.js"></script>
+<script type="application/javascript" src="directive/chatBubble.js"></script>
+</html>
