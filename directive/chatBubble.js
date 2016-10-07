@@ -5,7 +5,7 @@ angular.module('chatLineApp').directive('chatBubble',function(){
         scope : {
             line : '='
         },
-        template : '<div id="chat"><text ng-bind="line"></text></div>',
+        templateUrl : 'template/chatIO.html' ,
         link : function($scope,elem,attrib){
             console.log('dir - ',$scope.line);
             console.log('inside directive');
